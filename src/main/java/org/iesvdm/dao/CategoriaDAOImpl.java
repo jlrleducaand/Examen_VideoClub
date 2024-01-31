@@ -1,4 +1,4 @@
-package org.iesvdm.repository;
+package org.iesvdm.dao;
 
 import java.util.List;
 
@@ -8,11 +8,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CategoriaRepositoryImpl implements CategoriaRepository{
+public class CategoriaDAOImpl implements CategoriaDAO{
 
 	private JdbcTemplate jdbcTemplate;
 	
-	public CategoriaRepositoryImpl(JdbcTemplate jdbcTemplate) {
+	public CategoriaDAOImpl(JdbcTemplate jdbcTemplate) {
 		super();
 		this.jdbcTemplate = jdbcTemplate;
 	}

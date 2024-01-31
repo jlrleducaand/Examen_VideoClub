@@ -7,9 +7,9 @@ import org.iesvdm.domain.Categoria;
 import org.iesvdm.domain.Idioma;
 import org.iesvdm.domain.Pelicula;
 import org.iesvdm.dto.PeliculaDTO;
-import org.iesvdm.repository.CategoriaRepository;
-import org.iesvdm.repository.IdiomaRepository;
-import org.iesvdm.repository.PeliculaRepository;
+import org.iesvdm.dao.CategoriaDAO;
+import org.iesvdm.dao.IdiomaDAO;
+import org.iesvdm.dao.PeliculaDAO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -21,34 +21,34 @@ public class PeliculaService {
 	@Value("#{${app.videoclub_examen.set.clasificaciones}}")
 	private Set<String> setCaracteristicasEspeciales;
 	
-	private PeliculaRepository peliculaRepository;
-	private IdiomaRepository idiomaRepository;
-	private CategoriaRepository categoriaRepository;
+	private PeliculaDAO peliculaDAO;
+	private IdiomaDAO idiomaDAO;
+	private CategoriaDAO categoriaDAO;
 	
-	public PeliculaService(PeliculaRepository peliculaRepository, IdiomaRepository idiomaRepository, CategoriaRepository categoriaRepository) {
-		this.peliculaRepository = peliculaRepository;
-		this.idiomaRepository = idiomaRepository;
-		this.categoriaRepository = categoriaRepository;
+	public PeliculaService(PeliculaDAO peliculaDAO, IdiomaDAO idiomaDAO, CategoriaDAO categoriaDAO) {
+		this.peliculaDAO = peliculaDAO;
+		this.idiomaDAO = idiomaDAO;
+		this.categoriaDAO = categoriaDAO;
 	}
 	
 	public List<Pelicula> all() {
-		return this.peliculaRepository.findAll();
+		return this.peliculaDAO.findAll();
 	}
 	
 	public List<PeliculaDTO> allDTO() {
-		return this.peliculaRepository.findAllDTO();
+		return this.peliculaDAO.findAllDTO();
 	}
 
-	public Pelicula create(Pelicula pelicula) {
-		return this.peliculaRepository.create(pelicula);
+	public void create(Pelicula pelicula) {
+		peliculaDAO.create(pelicula);
 	}
 	
 	public List<Categoria> getListaCategorias() {
-		return this.categoriaRepository.findAll();
+		return this.categoriaDAO.findAll();
 	}
 	
 	public List<Idioma> getListaIdiomas() {
-		return this.idiomaRepository.findAll();
+		return this.idiomaDAO.findAll();
 	}
 	
 	public String[] getArrayClasificaciones() {

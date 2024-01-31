@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.iesvdm.domain.Pelicula;
 import org.iesvdm.dto.PeliculaDTO;
-import org.iesvdm.repository.PeliculaRepository;
 import org.iesvdm.service.PeliculaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class PeliculaController {
-	
+
 	private PeliculaService peliculaService;
 
 	public PeliculaController(PeliculaService peliculaService) {
@@ -22,7 +21,7 @@ public class PeliculaController {
 		this.peliculaService = peliculaService;
 
 	}
-	
+
 	@GetMapping("/peliculas")
 	public String listarPeliculas(Model model) {
 		
@@ -46,7 +45,7 @@ public class PeliculaController {
 
 	@PostMapping("/peliculas/crear")
 	public String postCrearPelicula(@ModelAttribute Pelicula pelicula) {
-		
+
 		this.peliculaService.create(pelicula);
 		
 		return "redirect:/peliculas";

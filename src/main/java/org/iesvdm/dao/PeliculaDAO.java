@@ -1,16 +1,16 @@
-package org.iesvdm.repository;
+package org.iesvdm.dao;
 
 import java.util.List;
 
 import org.iesvdm.domain.Pelicula;
 import org.iesvdm.dto.PeliculaDTO;
 
-public interface PeliculaRepository {
+public interface PeliculaDAO {
 
 	public List<Pelicula> findAll();
 	
 	public List<PeliculaDTO> findAllDTO();
 	
-	public Pelicula create(Pelicula pelicula);
+	public void create(Pelicula pelicula);
 
 }

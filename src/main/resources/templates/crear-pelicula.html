@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{crearPelicula}">Crear Película</title>
+<title th:text="#{tit.crear.pelicula}">Crear Película</title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 <!-- Para livereload in html -->
@@ -21,25 +21,25 @@
 	<div class="row">
 		<div class="col-md-6"><label for="titulo" th:text="#{pelicula.titulo}"></label></div>
 		<div class="col-md-6">
-			<input th:field="*{titulo}"/>
+			<input type="text" id="titulo" name="titulo" th:value="${pelicula.titulo}"/>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="descripcion" th:text="#{pelicula.descripcion}"></label></div>
 		<div class="col-md-6">
-			<input th:field="*{descripcion}"/>
+			<input type="text" id="descripcion" name="descripcion" th:value="${pelicula.descripcion}"/>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="anyoLanzamiento" th:text="#{pelicula.anyoLanzamiento}"></label></div>
 		<div class="col-md-6">
-			<input th:field="*{anyoLanzamiento}"/>
+			<input type="text" id="anyoLanzamiento" name="anyoLanzamiento" th:field="${pelicula.anyoLanzamiento}"/>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="idIdioma" th:text="#{pelicula.idioma}"></label></div>
 		<div class="col-md-6">
-			<select th:field="*{idIdioma}">
+			<select type="text" id="idIdioma" name="idIdioma" th:field="${pelicula.idIdioma}">
 				<option th:each="idioma: ${listaIdiomas}" th:value="${idioma.id}" th:text="${idioma.nombre}"></option>
 			</select>
 		</div>
@@ -47,7 +47,7 @@
 	<div class="row">
 		<div class="col-md-6"><label for="idIdiomaOriginal" th:text="#{pelicula.titulo}"></label></div>
 		<div class="col-md-6">
-			<select th:field="*{idIdiomaOriginal}">
+			<select type="text" id="idIdiomaOriginal" name="idIdiomaOriginal" th:field="${pelicula.idIdiomaOriginal}">
 				<option th:each="idioma: ${listaIdiomas}" th:value="${idioma.id}" th:text="${idioma.nombre}"></option>
 			</select>
 		</div>
@@ -55,39 +55,39 @@
 	<div class="row">
 		<div class="col-md-6"><label for="duracionAlquiler" th:text="#{pelicula.duracionAlquiler}"></label></div>
 		<div class="col-md-6">
-			<input th:field="*{duracionAlquiler}" type="number">
+			<input id="duracionAlquiler" name="duracionAlquiler" th:field="${pelicula.duracionAlquiler}" type="number">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="rentalRate" th:text="#{pelicula.precio}"></label></div>
 		<div class="col-md-6">
-			<input th:field="*{rentalRate}" type="number" step="any" >
+			<input  id="rentalRate" name="rentalRate" th:field="${pelicula.rentalRate}" type="number" step="any" >
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="duracion" th:text="#{pelicula.duracion}"></label></div>
 		<div class="col-md-6">
-			<input th:field="*{duracion}" type="number">
+			<input  id="duracion" name="duracion" th:field="${pelicula.duracion}" type="number">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="replacementCost" th:text="#{pelicula.costeReempl}"></label></div>
 		<div class="col-md-6">
-			<input th:field="*{replacementCost}" type="number" step="any" >
+			<input  id="replacementCost" name="replacementCost"  th:field="${pelicula.replacementCost}" type="number" step="any" >
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="clasificacion" th:text="#{pelicula.clasificacion}"></label></div>
 		<div class="col-md-6">
-			<select th:field="*{clasificacion}">
-				<option th:each="clasificacion: ${arrayClasificaciones}" th:value="${clasificacion}" th:text="${clasificacion}"></option>
+			<select  type="text" id="clasificacion" name="clasificacion" th:field="${pelicula.clasificacion}">
+				<option  th:each="clasificacion: ${arrayClasificaciones}" th:value="${clasificacion}" th:text="${clasificacion}"></option>
 			</select>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="caracteristicasEspeciales" th:text="#{pelicula.caracteristicas}"></label></div>
 		<div class="col-md-6">
-			<input th:field="*{caracteristicasEspeciales}" type="text">
+			<input type="text" id="caracteristicasEspeciales" name="caracteristicasEspeciales" th:field="${pelicula.caracteristicasEspeciales}">
 		</div>
 	</div>
 	<div class="row">

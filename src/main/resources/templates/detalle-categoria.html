@@ -1,34 +1,36 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title th:text="#{detalleCategoria}">Detalle Categoría</title>
-<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
-<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-<!-- Para livereload in html -->
-<script src="http://localhost:35729/livereload.js"></script>
+    <meta charset="UTF-8">
+    <title th:text="#{detalleCategoria}">Detalle Categoría</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+
 </head>
 <body>
 <!-- utilizando grid bootstrap tipo: stacked to horizontal -->
 <div class="container">
-	<div class="row">
-		<div class="col-md-12"><span class="h1" th:text="#{detalleCategoria}"></span></div>
-	</div>
-	<div class="row">
-		<div class="col-md-12"><hr/></div>
-	</div>
-	<div class="row">
-		<div class="col-md-6" th:text="#{categoria.id}"></div>
-		<div class="col-md-6" th:text="${categoriaDTO.id}"></div>
-	</div>
-	<div class="row">
-		<div class="col-md-6" th:text="#{categoria.nombre}"></div>
-		<div class="col-md-6" th:text="${categoriaDTO.nombre}"></div>
-	</div>
-	<div class="row">
-		<div class="col-md-6" th:text="#{categoria.conteoPeliculas}"></div>
-		<div class="col-md-6" th:text="${categoriaDTO.conteoPeliculas}"></div>
-	</div>
+    <div class="row">
+        <div class="col-md-12"><span class="h1" th:text="#{detalleCategoria}"></span></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" th:text="#{categoria.id}"></div>
+        <div class="col-md-6" th:text="${categoriaDTO.id}"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" th:text="#{categoria.nombre}"></div>
+        <div class="col-md-6" th:text="${categoriaDTO.nombre}"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" th:text="#{categoria.conteoPeliculas}"></div>
+        <div class="col-md-6" th:text="${categoriaDTO.conteoPeliculas}"></div>
+    </div>
 </div>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
 </body>
 </html>

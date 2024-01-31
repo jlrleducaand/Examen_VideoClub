@@ -1,20 +1,20 @@
-package org.iesvdm.repository;
+package org.iesvdm.dao;
 
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import org.iesvdm.domain.Idioma;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+@Slf4j
 
 @Repository
-public class IdiomaRepositoryImpl implements IdiomaRepository {
+public class IdiomaDAOImpl implements IdiomaDAO {
 
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	public IdiomaRepositoryImpl(JdbcTemplate jdbcTemplate) {
-		super();
-		this.jdbcTemplate = jdbcTemplate;
-	}
 
 
 	@Override
