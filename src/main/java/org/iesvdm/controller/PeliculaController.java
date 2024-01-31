@@ -2,11 +2,13 @@ package org.iesvdm.controller;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.iesvdm.domain.Pelicula;
 import org.iesvdm.dto.PeliculaDTO;
 import org.iesvdm.service.PeliculaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,10 +46,14 @@ public class PeliculaController {
 	}
 
 	@PostMapping("/peliculas/crear")
-	public String postCrearPelicula(@ModelAttribute Pelicula pelicula) {
+	public String postCrearPelicula(@ModelAttribute @Valid Pelicula pelicula, BindingResult result) {
+		if (result.hasErrors()) {
+			// Manejar errores de validación
+			return "crear-pelicula";
+		}
 
 		this.peliculaService.create(pelicula);
-		
+
 		return "redirect:/peliculas";
 	}
 	

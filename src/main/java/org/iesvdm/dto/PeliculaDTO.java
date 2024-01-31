@@ -2,14 +2,14 @@ package org.iesvdm.dto;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Objects;
+
+
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.iesvdm.domain.Categoria;
 import org.iesvdm.domain.Idioma;
-import org.iesvdm.domain.Pelicula;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;

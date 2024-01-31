@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <title th:text="#{tit.crear.pelicula}">Crear Película</title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
-<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-<!-- Para livereload in html -->
-<script src="http://localhost:35729/livereload.js"></script>
+
 </head>
 <body>
 <!-- utilizando grid bootstrap tipo: stacked to horizontal -->
@@ -22,12 +20,19 @@
 		<div class="col-md-6"><label for="titulo" th:text="#{pelicula.titulo}"></label></div>
 		<div class="col-md-6">
 			<input type="text" id="titulo" name="titulo" th:value="${pelicula.titulo}"/>
+			<p th:if="${#fields.hasErrors('titulo')}" class="error">
+				<span th:if="${#fields.hasErrors('titulo', 'notEmpty')}" th:text="#{pelicula.titulo.notEmpty}"></span>
+				<span th:if="${#fields.hasErrors('titulo', 'size')}" th:text="#{pelicula.titulo.size}"></span>
+			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="descripcion" th:text="#{pelicula.descripcion}"></label></div>
 		<div class="col-md-6">
 			<input type="text" id="descripcion" name="descripcion" th:value="${pelicula.descripcion}"/>
+			<p th:if="${#fields.hasErrors('descripcion')}" class="error">
+				<span th:if="${#fields.hasErrors('descripcion', 'size')}" th:text="#{pelicula.descripcion.size}"></span>
+			</p>
 		</div>
 	</div>
 	<div class="row">
@@ -68,12 +73,20 @@
 		<div class="col-md-6"><label for="duracion" th:text="#{pelicula.duracion}"></label></div>
 		<div class="col-md-6">
 			<input  id="duracion" name="duracion" th:field="${pelicula.duracion}" type="number">
+			<p th:if="${#fields.hasErrors('duracion')}" class="error">
+				<span th:if="${#fields.hasErrors('duracion', 'posittive')}" th:text="#{pelicula.duracion.positive}"></span>
+				<span th:if="${#fields.hasErrors('duracion', 'notNull')}" th:text="#{pelicula.duracion.notNull}"></span>
+
+			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="replacementCost" th:text="#{pelicula.costeReempl}"></label></div>
 		<div class="col-md-6">
 			<input  id="replacementCost" name="replacementCost"  th:field="${pelicula.replacementCost}" type="number" step="any" >
+			<p th:if="${#fields.hasErrors('replacementCost')}" class="error">
+				<span th:if="${#fields.hasErrors('replacementCost', 'min')}" th:text="#{pelicula.replacementCost.min}"></span>
+			</p>
 		</div>
 	</div>
 	<div class="row">
@@ -97,5 +110,7 @@
 	</div>
 </div>
 </form>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
 </body>
 </html>
