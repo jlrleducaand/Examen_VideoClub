@@ -36,37 +36,30 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6"><label for="anyoLanzamiento" th:text="#{pelicula.anyoLanzamiento}"></label></div>
+		<div class="col-md-6"><label for="fechaLanzamiento" th:text="#{pelicula.fechaLanzamiento}"></label></div>
 		<div class="col-md-6">
-			<input type="text" id="anyoLanzamiento" name="anyoLanzamiento" th:field="${pelicula.anyoLanzamiento}"/>
+			<input type="date" id="fechaLanzamiento" name="fechaLanzamiento" th:field="${pelicula.fecha_lanzamiento}"/>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6"><label for="idIdioma" th:text="#{pelicula.idioma}"></label></div>
+		<div class="col-md-6"><label for="id_idioma" th:text="#{pelicula.idioma}"></label></div>
 		<div class="col-md-6">
-			<select type="text" id="idIdioma" name="idIdioma" th:field="${pelicula.idIdioma}">
-				<option th:each="idioma: ${listaIdiomas}" th:value="${idioma.id}" th:text="${idioma.nombre}"></option>
+			<select type="text" id="id_idioma" name="id_idioma" th:field="${pelicula.id_idioma}">
+				<option th:each="idioma : ${listaIdiomas}" th:value="${idioma.id}" th:text="${idioma.nombre}"></option>
 			</select>
 		</div>
 	</div>
+
 	<div class="row">
-		<div class="col-md-6"><label for="idIdiomaOriginal" th:text="#{pelicula.titulo}"></label></div>
+		<div class="col-md-6"><label for="duracion_alquiler" th:text="#{pelicula.duracionAlquiler}"></label></div>
 		<div class="col-md-6">
-			<select type="text" id="idIdiomaOriginal" name="idIdiomaOriginal" th:field="${pelicula.idIdiomaOriginal}">
-				<option th:each="idioma: ${listaIdiomas}" th:value="${idioma.id}" th:text="${idioma.nombre}"></option>
-			</select>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6"><label for="duracionAlquiler" th:text="#{pelicula.duracionAlquiler}"></label></div>
-		<div class="col-md-6">
-			<input id="duracionAlquiler" name="duracionAlquiler" th:field="${pelicula.duracionAlquiler}" type="number">
+			<input id="duracion_alquiler" name="duracion_alquiler" th:field="${pelicula.duracion_alquiler}" type="number">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"><label for="rentalRate" th:text="#{pelicula.precio}"></label></div>
 		<div class="col-md-6">
-			<input  id="rentalRate" name="rentalRate" th:field="${pelicula.rentalRate}" type="number" step="any" >
+			<input  id="rentalRate" name="rentalRate" th:field="${pelicula.rental_rate}" type="number" step="any" >
 		</div>
 	</div>
 	<div class="row">
@@ -81,28 +74,16 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6"><label for="replacementCost" th:text="#{pelicula.costeReempl}"></label></div>
+		<div class="col-md-6"><label for="replacement_cost" th:text="#{pelicula.costR}"></label></div>
 		<div class="col-md-6">
-			<input  id="replacementCost" name="replacementCost"  th:field="${pelicula.replacementCost}" type="number" step="any" >
-			<p th:if="${#fields.hasErrors('replacementCost')}" class="error">
-				<span th:if="${#fields.hasErrors('replacementCost', 'min')}" th:text="#{pelicula.replacementCost.min}"></span>
+			<input  id="replacement_cost" name="replacement_cost"  th:field="${pelicula.replacement_cost}" value="19,99" type="number" step="any" >
+			<p th:if="${#fields.hasErrors('replacement_cost')}" class="error">
+				<span th:if="${#fields.hasErrors('replacement_cost', 'min')}" th:text="#{pelicula.replacementCost.min}"></span>
 			</p>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-6"><label for="clasificacion" th:text="#{pelicula.clasificacion}"></label></div>
-		<div class="col-md-6">
-			<select  type="text" id="clasificacion" name="clasificacion" th:field="${pelicula.clasificacion}">
-				<option  th:each="clasificacion: ${arrayClasificaciones}" th:value="${clasificacion}" th:text="${clasificacion}"></option>
-			</select>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6"><label for="caracteristicasEspeciales" th:text="#{pelicula.caracteristicas}"></label></div>
-		<div class="col-md-6">
-			<input type="text" id="caracteristicasEspeciales" name="caracteristicasEspeciales" th:field="${pelicula.caracteristicasEspeciales}">
-		</div>
-	</div>
+
+
 	<div class="row">
 		<div class="col-md-6"><input type="submit" th:value="#{btn.guardar}"/></div>
 		<div class="col-md-6">

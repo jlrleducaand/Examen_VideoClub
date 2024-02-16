@@ -21,47 +21,55 @@
             </form>
         </div>
     </div>
-    <hr/>
     <div class="row">
-        <div class="col-md-1" th:text="#{pelicula.descripcion}">Descrip.</div>
-        <div class="col-md-1" th:text="#{pelicula.categoria}">Categ.</div>
-        <div class="col-md-1" th:text="#{pelicula.anyoLanzamiento}">Año Lanz.</div>
-        <div class="col-md-1" th:text="#{pelicula.idioma}">Idioma</div>
-        <div class="col-md-1" th:text="#{pelicula.idiomaOriginal}">Idioma Orig.</div>
-        <div class="col-md-1" th:text="#{pelicula.duracion}">Durac. Alq.</div>
-        <div class="col-md-1" th:text="#{pelicula.precio}">Precio</div>
-        <div class="col-md-1" th:text="#{pelicula.duracion}">Duración</div>
-        <div class="col-md-1" th:text="#{pelicula.costeReempl}">Coste Reemplaz.</div>
-        <div class="col-md-1" th:text="#{pelicula.clasificacion}">Clasific.</div>
-        <div class="col-md-1" th:text="#{pelicula.caracteristicas}">Caract.</div>
+        <label>Peliculas Totales</label>
+        <div class="" th:text="${totalPeliculas}">ID.</div>
+    </div>
+    <div class="row">
+        <label>costeReemplazoHorror</label>
+        <div class="" th:text="${costeReemplazoHorror}">ID.</div>
+    </div>
+    <div class="row">
+        <label>peliculasPorCategoria Totales</label>
+        <div class="" th:text="${peliculasPorCategoria}">ID.</div>
     </div>
     <hr/>
-    <div class="row" th:each="peliculaDTO: ${peliculasDTO}">
-        <div class="col-md-1"
-             th:text="'Id.'+${peliculaDTO.idPelicula}+' - '+${#strings.abbreviate(peliculaDTO.descripcion,20)}">Desc.
-        </div>
-        <div class="col-md-1" th:text="${peliculaDTO.categoria.nombre}">Categ.</div>
-        <div class="col-md-1" th:text="${#dates.format(peliculaDTO.anyoLanzamiento, 'yyyy')}">Año Lanz.</div>
-        <div class="col-md-1" th:text="${peliculaDTO.idioma.nombre}">Idioma</div>
-        <div class="col-md-1" th:text="${peliculaDTO.idiomaOriginal.nombre}">Idioma Orig.</div>
-        <div class="col-md-1" th:text="${peliculaDTO.duracionAlquiler}">Durac. Alq.</div>
-        <div class="col-md-1" th:text="${peliculaDTO.rentalRate}">Precio</div>
+    <div class="row m-1 bg-primary text-white">
+        <div class="col-md-1" th:text="#{pelicula.idPelicula}">id.</div>
+        <div class="col-md-2" th:text="#{pelicula.titulo}">Titulo.</div>
+        <div class="col-md-1" th:text="#{pelicula.fechaLanzamiento}">fechaL</div>
+        <div class="col-md-1" th:text="#{pelicula.idioma}">Idioma</div>
+        <div class="col-md-1" th:text="#{pelicula.duracionAlquiler}">Idioma</div>
+        <div class="col-md-1" th:text="#{pelicula.costeAlquiler}">Coste</div>
+        <div class="col-md-1" th:text="#{pelicula.duracion}">Duracion</div>
+        <div class="col-md-1" th:text="#{pelicula.costR}">R Coste</div>
+<!--        <div class="col-md-1" th:text="#{pelicula.categoria}">Categoria.</div>-->
+    </div>
+    <hr/>
+    <div class="row m-1" th:each="peliculaDTO: ${peliculasDTO} ">
+        <div class="col-md-1" th:text="${peliculaDTO.id_pelicula}">ID.</div>
+        <div class="col-md-2" th:text="${peliculaDTO.titulo}">Titulo.</div>
+        <div class="col-md-1" th:text="${#dates.format(peliculaDTO.fecha_lanzamiento, 'yyyy-MM-dd')}">FechaLanz.</div>
+        <div class="col-md-1" th:text="${peliculaDTO.id_idioma}">Idioma</div>
+        <div class="col-md-1" th:text="${peliculaDTO.duracion_alquiler}">Durac. Alq.</div>
+        <div class="col-md-1" th:text="${peliculaDTO.rental_rate}">Precio</div>
         <div class="col-md-1" th:text="${peliculaDTO.duracion}">Duracion</div>
-        <div class="col-md-1" th:text="${peliculaDTO.replacementCost}">Coste Reemplaz.</div>
-        <div class="col-md-1" th:text="${peliculaDTO.clasificacion}">Clasific.</div>
-        <div class="col-md-1" th:text="${peliculaDTO.caracteristicasEspeciales}">Caract.</div>
-        <div class="col-md-1">
-            <form th:action="@{/peliculas/__${peliculaDTO.idPelicula}__}" style="display: inline;">
-                <input type="submit" th:value="#{btn.verDetalle}" class="btn btn-info"/>
+        <div class="col-md-1" th:text="${peliculaDTO.replacement_cost}">Coste Reemplaz.</div>
+<!--        <div class="col-md-2" th:text="${peliculaDTO.categoria.nombre}">Categ.</div>-->
+
+        <div class="d-flex  justify-content-between col-3 ">
+            <form th:action="@{/peliculas/__${peliculaDTO.id_pelicula}__}" style="display: inline;">
+                <input type="submit" th:value="#{btn.verDetalle}" class=" w-100 btn btn-info "/>
             </form>
-            <form th:action="@{'/peliculas/editar/' + ${peliculaDTO.idPelicula}} " style="display: inline;">
-                <input type="submit" th:value="#{btn.editar}" class="btn btn-warning"/>
+            <form th:action="@{'/peliculas/editar/' + ${peliculaDTO.id_pelicula}} " style="display: inline;">
+                <input type="submit" th:value="#{btn.editar}" class=" w-100 btn btn-warning "/>
             </form>
-            <form th:action="@{/peliculas/borrar/{id}(id=${peliculaDTO.idPelicula})}" method="post"
+            <form th:action="@{/peliculas/borrar/{id}(id=${peliculaDTO.id_pelicula})}" method="post"
                   style="display: inline;">
-                <input type="submit" th:value="#{btn.eliminar}" class="btn btn-danger"/>
+                <input type="submit" th:value="#{btn.eliminar}" class=" w-100 btn btn-danger "/>
             </form>
         </div>
+        <br class="border-2">
     </div>
 
 </div>
